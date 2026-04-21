@@ -5,7 +5,7 @@
 # 
 
 # Filename for the ZIP archive, including a package version number.
-ZIP_FILENAME="photogimp_3.$(date +'%y.%m').zip" # example: photogimp_3.26.04.zip
+ZIP_FILENAME="photogimp_3.$(date +'%Y.%m').zip" # example: photogimp_3.26.04.zip
 
 # List of files and directories to include in the ZIP archive.
 FILES_TO_INCLUDE=(
