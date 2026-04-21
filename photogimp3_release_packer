@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # 
 # Release Packer by ems≈spree
 # Create a ZIP-archived release package from the PhotoGIMP repository.
