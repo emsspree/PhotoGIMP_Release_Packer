@@ -17,7 +17,6 @@ FILES_TO_INCLUDE=(
 	splashes
 	theme.css
 	toolrc
-	templaterc
 )
 
 # Subdirectory within the repository that contains the files to be included in the ZIP archive.
