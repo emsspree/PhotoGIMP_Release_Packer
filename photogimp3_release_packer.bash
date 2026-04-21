@@ -20,7 +20,7 @@ FILES_TO_INCLUDE=(
 )
 
 # Subdirectory within the repository that contains the files to be included in the ZIP archive.
-SOURCE_DIR='./PhotoGIMP/.config/GIMP/3.0'
+SOURCE_DIR='./.config/GIMP/3.0'
 
 # Path to the target directory where the ZIP file will be created.
 TARGET_DIR="$(dirname "$PWD")"
