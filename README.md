@@ -1,4 +1,5 @@
-# PhotoGIMP Release Packer
+# PhotoGIMP 3 Release Packer
+
 Create a ZIP-archived release package from the PhotoGIMP repository.
 
 ## Usage
