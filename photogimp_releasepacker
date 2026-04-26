@@ -19,18 +19,26 @@ FILES_TO_INCLUDE=(
 	toolrc
 )
 
-# Subdirectory within the repository that contains the files to be included in the ZIP archive.
-SOURCE_DIR='./.config/GIMP/3.0'
-
 # Path to the target directory where the ZIP file will be created.
 TARGET_DIR="$(dirname "$PWD")"
 
-# Check if the source directory exists. If it does, create the ZIP archive.
-# Otherwise, print an error message and exit with a non-zero status code.
-if [[ -d "$SOURCE_DIR" ]]; then
-	cd "$SOURCE_DIR" || exit 2
-	zip -r "$TARGET_DIR/$ZIP_FILENAME" "${FILES_TO_INCLUDE[@]}" -x ".DS_Store"
+# Pack and compress files.
+create_archive() {
+	zip -r "$TARGET_DIR/$ZIP_FILENAME" "${FILES_TO_INCLUDE[@]}" -x .DS_Store || exit 26
+}
+
+# Check if files/folder exists and create archive
+if [[ -f gimprc ]] && [[ -f shortcutsrc ]]; then
+	create_archive
+elif [[ -d .config/GIMP/3.0 ]]; then
+	cd .config/GIMP/3.0 || exit 41
+	if [[ -f gimprc ]] && [[ -f shortcutsrc ]]; then
+		create_archive
+	else 
+		echo "Error. Files not found. Are you in the reops’s root?" >&2
+		exit 42
+	fi
 else
-	echo "Error: Source directory not found: $SOURCE_DIR" >&2
-	exit 1
+	echo "Error. Files not found. Are you in the reops’s root?" >&2
+	exit 40
 fi
